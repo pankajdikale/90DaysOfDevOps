@@ -1,0 +1,72 @@
+# Linux Architecture Notes
+
+## Linux Architecture
+
+### 1. Kernel
+- Core part of Linux OS
+- Directly interacts with hardware
+- Manages CPU, memory, devices, and processes
+
+### 2. User Space
+- Area where users and applications run
+- Examples:
+  - Bash
+  - VS Code
+  - Chrome
+  - Linux commands
+
+### 3. Init / systemd
+- First process started after boot (PID 1)
+- Manages system services and boot process
+- Restarts failed services automatically
+
+---
+
+# Process Management
+
+## What is a Process?
+- A running program is called a process
+- Every process has a PID (Process ID)
+
+## Process States
+- Running (R) → Using CPU
+- Sleeping (S) → Waiting for input/resource
+- Stopped (T) → Paused process
+- Zombie (Z) → Finished but not cleaned
+
+## Process Creation
+- Processes are created using fork()
+- Parent process creates child process
+
+---
+
+# What systemd Does
+
+## Main Functions
+- Starts services during boot
+- Monitors background services
+- Restarts failed services
+- Handles logs using journald
+
+## Useful Command
+sudo systemctl status nginx
+
+---
+
+# 5 Daily Linux Commands
+
+| Command | Purpose |
+|---|---|
+| ps aux | View running processes |
+| top | Monitor CPU and memory |
+| systemctl status | Check service status |
+| journalctl -xe | View logs |
+| kill PID | Stop a process |
+
+---
+
+# Why This Matters for DevOps
+- Helps debug crashed services
+- Useful for troubleshooting
+- Helps understand logs and restarts
+- Important for Linux server management
