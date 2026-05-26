@@ -1,113 +1,121 @@
 # Day 04 – Linux Practice: Processes and Services
 
-## Process Checks
+## Introduction
 
-### 1. Check Running Processes
+Today I practiced Linux process management, systemd services, and log inspection using real Linux commands.
 
-Command:
+This hands-on practice helped me understand how Linux systems are monitored and troubleshooted in DevOps environments.
+
+---
+
+# Process Checks
+
+## 1. Check Running Processes
+
+### Command
 ```bash
 ps aux
 ```
 
-Purpose:
+### Purpose
 Shows all running processes in the system.
 
 ---
 
-### 2. Live Process Monitoring
+## 2. Live Process Monitoring
 
-Command:
+### Command
 ```bash
 top
 ```
 
-Purpose:
-Displays live CPU and memory usage of processes.
+### Purpose
+Displays live CPU and memory usage of running processes.
 
 ---
 
 # Service Checks
 
-### 3. Check SSH Service Status
+## 3. Check Cron Service Status
 
-Command:
+### Command
 ```bash
-systemctl status ssh
+systemctl status cron
 ```
 
-Purpose:
-Checks whether SSH service is running correctly.
+### Purpose
+Checks whether cron service is running properly.
 
-Observation:
-Service was active and running.
+### Observation
+The service was active and running.
 
 ---
 
-### 4. List Running Services
+## 4. List Running Services
 
-Command:
+### Command
 ```bash
 systemctl list-units --type=service
 ```
 
-Purpose:
-Lists active services managed by systemd.
+### Purpose
+Lists active systemd services running on the system.
 
 ---
 
 # Log Checks
 
-### 5. View SSH Service Logs
+## 5. Check Cron Service Logs
 
-Command:
+### Command
 ```bash
-journalctl -u ssh
+journalctl -u cron
 ```
 
-Purpose:
-Displays logs related to SSH service.
+### Purpose
+Displays logs related to cron service.
 
 ---
 
-### 6. View Recent System Logs
+## 6. View Recent System Logs
 
-Command:
+### Command
 ```bash
 tail -n 50 /var/log/syslog
 ```
 
-Purpose:
+### Purpose
 Shows last 50 lines of system logs.
 
 ---
 
-# Mini Troubleshooting Flow
+# Mini Troubleshooting Practice
 
 ## Scenario
-Verify whether SSH service is working properly.
+I wanted to verify whether the cron service was working correctly.
 
-## Steps
+## Troubleshooting Steps
 
 ### Step 1
-Check service status:
+Checked service status:
 ```bash
-systemctl status ssh
+systemctl status cron
 ```
 
 ### Step 2
-Check running SSH process:
+Verified running process:
 ```bash
-ps aux | grep ssh
+ps aux | grep cron
 ```
 
 ### Step 3
-Inspect SSH logs:
+Checked logs:
 ```bash
-journalctl -u ssh
+journalctl -u cron
 ```
 
-## Result
-SSH service was running successfully without errors.
+### Result
+Cron service was running successfully without errors.
 
 ---
 
@@ -121,11 +129,36 @@ SSH service was running successfully without errors.
 
 ---
 
+# Why This Matters in DevOps
+
+Linux troubleshooting is a core DevOps skill.
+
+These commands help engineers:
+- Detect service failures
+- Monitor applications
+- Debug issues quickly
+- Reduce downtime in production systems
+
+---
+
+# Commands Practiced Today
+
+| Command | Purpose |
+|---|---|
+| `ps aux` | Show running processes |
+| `top` | Live system monitoring |
+| `systemctl status cron` | Check service status |
+| `systemctl list-units --type=service` | List running services |
+| `journalctl -u cron` | View service logs |
+| `tail -n 50 /var/log/syslog` | View recent logs |
+
+---
+
 # Day 04 Summary
 
 Today I practiced:
-- Linux process management
-- Service inspection
+- Linux processes
+- systemd services
 - Log monitoring
 - Basic troubleshooting
 
